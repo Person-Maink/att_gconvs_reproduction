@@ -1,0 +1,14 @@
+model:
+  _target_: experiments.cifar10.models.P4MAllCNNC
+  epoch: 350
+  weight_decay: 0.001
+batch_size: 128
+lr: 0.05
+optim: sgd
+device: cuda
+pretrained: false
+augment: false
+seed: 3
+extra_comment: ' '
+path: ' '
+root: experiments/pcam/data

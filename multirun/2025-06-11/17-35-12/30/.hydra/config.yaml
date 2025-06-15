@@ -1,0 +1,13 @@
+model:
+  _target_: experiments.rot_mnist.models.A_P4CNN
+batch_size: 128
+epochs: 1
+lr: 0.001
+weight_decay: 0.0001
+optim: adam
+device: cuda
+pretrained: false
+seed: 0
+extra_comment: ' '
+path: ' '
+root: experiments/rot_mnist/data

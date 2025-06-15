@@ -1,0 +1,2 @@
+_target_: experiments.rot_mnist.models.P4CNN
+N_channels : 19

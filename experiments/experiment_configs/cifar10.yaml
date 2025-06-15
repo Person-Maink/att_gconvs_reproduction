@@ -1,0 +1,23 @@
+defaults:
+  - model: DenseNet
+  - _self_
+
+batch_size: 128
+epochs: ???
+lr: 0.05
+weight_decay: ???
+optim: sgd
+device: cuda
+pretrained: false
+augment: false
+seed: 0
+extra_comment: " " # for naming files
+path: " " # gets added later
+root: "experiments/cifar10/data"
+
+hydra:
+  sweeper:
+    params:
+      model: P4AllCNNC, fA_P4AllCNNC, P4MAllCNNC, fA_P4MAllCNNC, P4MResNet, fA_P4MResNet
+      seed: 0,1,2,3,4
+

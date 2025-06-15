@@ -1,0 +1,2 @@
+_target_: experiments.pcam.models.P4MDenseNet
+n_channels: 9

@@ -1,0 +1,15 @@
+batch_size: 128
+epochs: 100
+lr: 0.001
+weight_decay: 0.0001
+optim: adam
+device: cuda
+pretrained: false
+augment: false
+seed: 0
+extra_comment: ' '
+path: ' '
+root: experiments/pcam/data
+model:
+  _target_: experiments.pcam.models.DenseNet
+  n_channels: 26

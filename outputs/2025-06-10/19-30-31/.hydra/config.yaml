@@ -1,0 +1,9 @@
+datasets:
+  model:
+    _target_: experiments.pcam.models.DenseNet
+    n_channels: 26
+  hydra:
+    sweeper:
+      params:
+        datasets.model: DenseNet, fA_P4DenseNet, P4MDenseNet, fA_P4MDenseNet
+        datasets.seed: 0,1,2,3,4

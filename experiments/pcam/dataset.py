@@ -59,7 +59,7 @@ def _load_PCAM_CSV(file):
             wsi += [row["wsi"]]
     return tumor_patch, center_tumor_patch, wsi
 
-def get_dataset(batch_size, augmentation, num_workers):
+def get_dataset(batch_size, augmentation, num_workers, root=".data"):
     # ------------
     # Create Image Folder structure (if necessary)
     # train_data, test_data, train_labels, test_labels = preprocess_data(train_data, test_data, train_labels, test_labels)
@@ -86,13 +86,13 @@ def get_dataset(batch_size, augmentation, num_workers):
         transf_train = transf_test
     # ----------------------
     # Create Dataset and Dataloaders
-    train_dataset = datasets.ImageFolder(root='./data/train', transform=transf_train)
+    train_dataset = datasets.ImageFolder(root=root+'/train', transform=transf_train)
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers, pin_memory=True)
 
-    val_dataset = datasets.ImageFolder(root='./data/valid', transform=transf_test)
+    val_dataset = datasets.ImageFolder(root=root+'/valid', transform=transf_test)
     val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
 
-    test_dataset=datasets.ImageFolder(root='./data/test', transform=transf_test)
+    test_dataset=datasets.ImageFolder(root=root+'/test', transform=transf_test)
     test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
     dataloaders = {'train': train_loader,
                    'validation': val_loader}

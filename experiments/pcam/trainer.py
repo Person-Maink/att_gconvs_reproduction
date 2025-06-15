@@ -25,6 +25,12 @@ def train(model, dataloaders, test_loader, args):
     history = np.array([va, vl, ta, tl])
     np.save(args.path[:-4] + "_history.npy", history)
 
+    from experiments.run_util import plot_curves
+    plot_curves(
+        args.path[:-4] + "_history.npy",
+        smooth=5,  # set to 1 to disable smoothing
+    )
+
 
 def _train(model, epochs, criterion, optimizer, dataloader, test_loader, device, lr_scheduler):
     # Accumulate information about the training history

@@ -1,0 +1,16 @@
+model:
+  _target_: experiments.cifar10.models.P4MResNet
+  epoch: 300
+  weight_decay: 0
+batch_size: 128
+epochs: ???
+lr: 0.05
+weight_decay: ???
+optim: sgd
+device: cuda
+pretrained: false
+augment: false
+seed: 4
+extra_comment: ' '
+path: ' '
+root: experiments/pcam/data

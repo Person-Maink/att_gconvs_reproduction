@@ -23,7 +23,7 @@ class Z2CNN(nn.Module):
         self.c4 = nn.Conv2d(in_channels=N_channels, out_channels=N_channels, kernel_size=kernel_size, stride=stride, padding=padding, bias=use_bias)
         self.c5 = nn.Conv2d(in_channels=N_channels, out_channels=N_channels, kernel_size=kernel_size, stride=stride, padding=padding, bias=use_bias)
         self.c6 = nn.Conv2d(in_channels=N_channels, out_channels=N_channels, kernel_size=kernel_size, stride=stride, padding=padding, bias=use_bias)
-        self.c7 = nn.Conv2d(in_channels=N_channels, out_channels=10        , kernel_size=4          , stride=stride, padding=padding, bias=use_bias)
+        self.c7 = nn.Conv2d(in_channels=N_channels, out_channels=1623        , kernel_size=4          , stride=stride, padding=padding, bias=use_bias)
         # Dropout
         self.dp = nn.Dropout(p)
         # Batch Normalization
@@ -50,7 +50,7 @@ class Z2CNN(nn.Module):
         out = self.dp(torch.relu(self.bn6(self.c6(out))))
 
         out = self.c7(out)
-        out = out.view(out.size(0), 10)
+        out = out.view(out.size(0), 1623)
         return out
 
 
@@ -182,9 +182,9 @@ class A_P4CNN(nn.Module):
                                        channel_attention=ch_GG(N_out=N_channels, N_in=N_channels, ratio=ch_ratio),
                                        spatial_attention=sp_GG(N_out=N_channels, N_in=N_channels, kernel_size=sp_kernel_size)
                                        )
-        self.c7 = se2_layers.AttConvGG(N_in=N_channels, N_out=10        , kernel_size=4         , h_grid=self.h_grid, input_h_grid=self.h_grid, stride=stride, padding=padding,
-                                       channel_attention=ch_GG(N_out=10        , N_in=N_channels, ratio=ch_ratio),
-                                       spatial_attention=sp_GG(N_out=10        , N_in=N_channels, kernel_size=sp_kernel_size)
+        self.c7 = se2_layers.AttConvGG(N_in=N_channels, N_out=1623        , kernel_size=4         , h_grid=self.h_grid, input_h_grid=self.h_grid, stride=stride, padding=padding,
+                                       channel_attention=ch_GG(N_out=1623        , N_in=N_channels, ratio=ch_ratio),
+                                       spatial_attention=sp_GG(N_out=1623        , N_in=N_channels, kernel_size=sp_kernel_size)
                                        )
         # Dropout
         self.dp = nn.Dropout(p)
@@ -211,7 +211,7 @@ class A_P4CNN(nn.Module):
 
         out = self.c7(out)
         out, _ = torch.max(out, dim=-3)
-        out = out.view(out.size(0), 10)
+        out = out.view(out.size(0), 1623)
         return out
 
 
@@ -278,9 +278,9 @@ class A_Ch_P4CNN(A_P4CNN):
                                        channel_attention=ch_GG(N_out=N_channels, N_in=N_channels, ratio=ch_ratio),
                                        #spatial_attention=sp_GG(N_out=N_channels, N_in=N_channels, kernel_size=sp_kernel_size)
                                        )
-        self.c7 = se2_layers.AttConvGG(N_in=N_channels, N_out=10        , kernel_size=4         , h_grid=self.h_grid, input_h_grid=self.h_grid, stride=stride, padding=padding,
-                                       channel_attention=ch_GG(N_out=10        , N_in=N_channels, ratio=ch_ratio),
-                                       #spatial_attention=sp_GG(N_out=10        , N_in=N_channels, kernel_size=sp_kernel_size)
+        self.c7 = se2_layers.AttConvGG(N_in=N_channels, N_out=1623        , kernel_size=4         , h_grid=self.h_grid, input_h_grid=self.h_grid, stride=stride, padding=padding,
+                                       channel_attention=ch_GG(N_out=1623        , N_in=N_channels, ratio=ch_ratio),
+                                       #spatial_attention=sp_GG(N_out=1623        , N_in=N_channels, kernel_size=sp_kernel_size)
                                        )
         # Dropout
         self.dp = nn.Dropout(p)
@@ -358,9 +358,9 @@ class A_Sp_P4CNN(A_P4CNN):
                                        #channel_attention=ch_GG(N_out=N_channels, N_in=N_channels, ratio=ch_ratio),
                                        spatial_attention=sp_GG(N_out=N_channels, N_in=N_channels, kernel_size=sp_kernel_size)
                                        )
-        self.c7 = se2_layers.AttConvGG(N_in=N_channels, N_out=10        , kernel_size=4         , h_grid=self.h_grid, input_h_grid=self.h_grid, stride=stride, padding=padding,
-                                       #channel_attention=ch_GG(N_out=10        , N_in=N_channels, ratio=ch_ratio),
-                                       spatial_attention=sp_GG(N_out=10        , N_in=N_channels, kernel_size=sp_kernel_size)
+        self.c7 = se2_layers.AttConvGG(N_in=N_channels, N_out=1623        , kernel_size=4         , h_grid=self.h_grid, input_h_grid=self.h_grid, stride=stride, padding=padding,
+                                       #channel_attention=ch_GG(N_out=1623        , N_in=N_channels, ratio=ch_ratio),
+                                       spatial_attention=sp_GG(N_out=1623        , N_in=N_channels, kernel_size=sp_kernel_size)
                                        )
         # Dropout
         self.dp = nn.Dropout(p)
@@ -451,7 +451,7 @@ class fA_P4CNN(nn.Module):
                                        channel_attention=ch_GG(N_in=N_channels, ratio=ch_ratio),
                                        spatial_attention=sp_GG(kernel_size=sp_kernel_size)
                                        )
-        self.c7 = se2_layers.fAttConvGG(N_in=N_channels, N_out=10        , kernel_size=4         , h_grid=self.h_grid, input_h_grid=self.h_grid, stride=stride, padding=padding,
+        self.c7 = se2_layers.fAttConvGG(N_in=N_channels, N_out=1623        , kernel_size=4         , h_grid=self.h_grid, input_h_grid=self.h_grid, stride=stride, padding=padding,
                                        channel_attention=ch_GG(N_in=N_channels, ratio=ch_ratio),
                                        spatial_attention=sp_GG(kernel_size=sp_kernel_size)
                                        )
@@ -481,7 +481,7 @@ class fA_P4CNN(nn.Module):
 
         out = self.c7(out)
         out, _ = torch.max(out, dim=-3)
-        out = out.view(out.size(0), 10)
+        out = out.view(out.size(0), 1623)
 
         # Visualize
         if False:
@@ -527,7 +527,7 @@ class fA_P4CNN(nn.Module):
             # Plot all directions
             cmap = plt.cm.jet
             time_samples = 4
-            scale = 10
+            scale = 10 #TODO: could lead to bug? change to 1623
             z = np.zeros([inx, inx])
             for t in range(4):
                 plt.imshow(map_0.sum(-3)[B, 0])

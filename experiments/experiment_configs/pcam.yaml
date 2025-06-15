@@ -1,0 +1,22 @@
+defaults:
+  - model: DenseNet
+  - _self_
+
+batch_size: 128
+epochs: 100
+lr: 0.001
+weight_decay: 1e-4
+optim: adam
+device: cuda
+pretrained: false
+augment: false
+seed: 0
+extra_comment: " " # for naming files
+path: " " # gets added later
+root: "experiments/pcam/data"
+
+hydra:
+  sweeper:
+    params:
+      model: DenseNet, fA_P4DenseNet, P4MDenseNet, fA_P4MDenseNet
+      seed: 0,1,2,3,4

@@ -35,16 +35,16 @@ def main(args):
     args.optim = 'adam'
     args.batch_size = 128
     # Select model and define remaining parameters
-    if args.model == 'z2cnn':
+    if args.model == 'z2cnn': #done
         model = models.Z2CNN()
         args.epochs = 300
-    elif args.model == 'p4cnn':
+    elif args.model == 'p4cnn': #done
         model = models.P4CNN()
         args.epochs = 100
-    elif args.model == 'att_p4cnn':
+    elif args.model == 'att_p4cnn': #done
         model = models.A_P4CNN()
         args.epochs = 100
-    elif args.model == 'sp_att_p4cnn':
+    elif args.model == 'sp_att_p4cnn': #doing
         # Just spatial attention
         model = models.A_Sp_P4CNN()
         args.epochs = 100

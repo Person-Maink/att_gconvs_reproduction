@@ -36,7 +36,7 @@ import numpy as np
 
 
 # Based on torchvision datasets
-def get_dataset(batch_size, augmentation, num_workers):
+def get_dataset(batch_size, augmentation, num_workers, root="./data"):
     # Create transformations
     # ----------------------
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
@@ -55,9 +55,9 @@ def get_dataset(batch_size, augmentation, num_workers):
         transf_train = transf_test
     # ----------------------
     # Download dataset and create dataloaders
-    train_loader = torch.utils.data.DataLoader(datasets.CIFAR10(root='./data', train=True, transform=transf_train, download=True),
+    train_loader = torch.utils.data.DataLoader(datasets.CIFAR10(root=root, train=True, transform=transf_train, download=True),
                                                batch_size=batch_size, shuffle=True, num_workers=num_workers, pin_memory=True)
-    test_loader = torch.utils.data.DataLoader(datasets.CIFAR10(root='./data', train=False, transform=transf_test),
+    test_loader = torch.utils.data.DataLoader(datasets.CIFAR10(root=root, train=False, transform=transf_test),
                                              batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
     dataloaders = {'train': train_loader,
                    'validation': test_loader}

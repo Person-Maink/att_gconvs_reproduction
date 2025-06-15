@@ -1,0 +1,22 @@
+defaults:
+  - model: P4CNN
+  - _self_
+
+batch_size: 128
+epochs: 300
+lr: 0.001
+weight_decay: 1e-4
+optim: adam
+device: cuda
+augment: False
+pretrained: false
+seed: 0
+extra_comment: " " # for naming files
+path: " " # gets added later
+root: "experiments/omniglot/data"
+
+hydra:
+  sweeper:
+    params:
+      model: P4CNN, B11P4CNN, B15P4CNN, B19P4CNN, A_Ch_P4CNN, A_Sp_P4CNN, A_P4CNN, fA_P4CNN, RomHog_fA_P4CNN
+      seed: 0,1,2,3,4

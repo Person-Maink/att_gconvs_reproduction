@@ -3,7 +3,7 @@ import torch
 # built-in
 import numpy as np
 import copy
-
+from experiments.run_util import *
 
 def train(model, dataloaders, args):
     # Define loss
@@ -18,6 +18,12 @@ def train(model, dataloaders, args):
     # save history
     history = np.array([va, vl, ta, tl])
     np.save(args.path[:-4] + "_history.npy", history)
+
+    from experiments.run_util import plot_curves
+    plot_curves(
+        args.path[:-4] + "_history.npy",
+        smooth=5,  # set to 1 to disable smoothing
+    )
 
 
 def _train(model, epochs, criterion, optimizer, dataloader, device):

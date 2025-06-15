@@ -22,10 +22,13 @@ def preprocess_mnist_data(train_data, test_data, train_labels, test_labels):
     return train_data, test_data, train_labels, test_labels
 
 
-def get_dataset(batch_size, num_workers):
+def get_dataset(batch_size, num_workers, root="data"):
     # Load dataset
-    train_set = np.load('data/train_all.npz')     # TODO: More flexible
-    test_set = np.load('data/test.npz')
+    import os
+    print(os.getcwd())
+
+    train_set = np.load(root+'/train_all.npz')     # TODO: More flexible
+    test_set = np.load(root+'/test.npz')
     train_data = train_set['data']
     train_labels = train_set['labels']
     test_data = test_set['data']

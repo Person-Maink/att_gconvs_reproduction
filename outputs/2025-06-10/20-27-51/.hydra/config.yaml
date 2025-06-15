@@ -1,0 +1,20 @@
+datasets:
+  model:
+    _target_: experiments.rot_mnist.models.P4CNN
+  batch_size: 128
+  epochs: 2
+  lr: 0.001
+  weight_decay: 0.0001
+  optim: adam
+  device: cuda
+  pretrained: false
+  seed: 0
+  extra_comment: ' '
+  path: ' '
+  root: experiments/rot_mnist/data
+  hydra:
+    sweeper:
+      params:
+        model: P4CNN, B11P4CNN, B15P4CNN, B19P4CNN, A_Ch_P4CNN, A_Sp_P4CNN, A_P4CNN,
+          fA_P4CNN, RomHom_fA_P4CNN
+        datasets.seed: 0,1,2,3,4

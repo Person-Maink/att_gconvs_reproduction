@@ -1,0 +1,2 @@
+_target_: experiments.pcam.models.DenseNet
+n_channels: 26
