@@ -2,6 +2,7 @@ import argparse
 import subprocess
 import sys
 from experiments import *
+import os
 
 def main():
     parser = argparse.ArgumentParser(description="Run a specific experiment script.")
@@ -17,12 +18,12 @@ def main():
         "--visualize",
         type=bool,
         required=False,
-        default=True,
+        default=False,
         help="Whether to visualize the train and validation losses"
     )
     args = parser.parse_args()
 
-    script_name = f"run_{args.experiment}.py"
+    script_name = f"experiments/run_{args.experiment}.py"
     script_path = os.path.join(os.path.dirname(__file__), script_name)
 
     try:

@@ -3,7 +3,7 @@ from hydra.utils import instantiate
 from omegaconf import DictConfig, OmegaConf
 import torch, numpy as np, random
 from experiments.pcam import dataset, trainer     # adapt paths if different
-from run_util import *
+from experiments.run_util import *
 
 @hydra.main(version_base=None, config_path="experiment_configs", config_name="pcam.yaml")  # default YAML
 def main(cfg: DictConfig) -> None:

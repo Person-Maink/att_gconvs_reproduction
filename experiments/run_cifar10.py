@@ -1,7 +1,7 @@
 import hydra
 from hydra.utils import instantiate
 from omegaconf import DictConfig, OmegaConf
-from run_util import *
+from experiments.run_util import *
 import torch, numpy as np, random
 from experiments.cifar10 import dataset, trainer
 

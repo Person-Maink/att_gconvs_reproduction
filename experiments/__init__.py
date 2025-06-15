@@ -1,4 +1,4 @@
-# from run_pcam import *
-# from run_cifar10 import *
-# from run_omnilgot import *
-# from run_rot_mnist import *
+from experiments.run_pcam import *
+from experiments.run_cifar10 import *
+from experiments.run_omnilgot import *
+from experiments.run_rot_mnist import *

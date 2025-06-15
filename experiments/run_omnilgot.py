@@ -3,7 +3,7 @@ from hydra.utils import instantiate
 from omegaconf import DictConfig
 import numpy as np, random
 from experiments.omniglot import dataset, trainer     # adapt paths if different
-from run_util import *
+from experiments.run_util import *
 
 @hydra.main(version_base=None, config_path="experiment_configs", config_name="omniglot.yaml")  # default YAML
 def main(cfg: DictConfig) -> None:

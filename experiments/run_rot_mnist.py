@@ -3,7 +3,7 @@ from hydra.utils import instantiate
 from omegaconf import DictConfig, OmegaConf
 import numpy as np, random
 from experiments.rot_mnist import dataset, trainer     # adapt paths if different
-from run_util import *
+from  experiments.run_util import *
 import argparse
 
 
