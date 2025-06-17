@@ -90,7 +90,7 @@ dependencies:
   - pyrsistent=0.15.6=py37h7b6447c_0
   - python=3.7.5=h0371630_0
   - python-dateutil=2.8.1=py_0
-  # - pytorch=1.4.0=py3.7_cuda10.1.243_cudnn7.6.3_0
+   - pytorch=1.4.0=py3.7_cuda10.1.243_cudnn7.6.3_0
   - pytz=2019.3=py_0
   - pyzmq=18.1.0=py37he6710b0_0
   - qt=5.9.7=h5867ecd_1
@@ -105,7 +105,7 @@ dependencies:
   - terminado=0.8.3=py37_0
   - testpath=0.4.4=py_0
   - tk=8.6.8=hbc83047_0
-  # - torchvision=0.5.0=py37_cu101
+   - torchvision=0.5.0=py37_cu101
   - tornado=6.0.3=py37h7b6447c_0
   - traitlets=4.3.3=py37_0
   - wcwidth=0.1.7=py37_0
@@ -117,5 +117,6 @@ dependencies:
   - zipp=0.6.0=py_0
   - zlib=1.2.11=h7b6447c_3
   - zstd=1.3.7=h0b5b093_0
+  - hydra-core=1.3.2
 # prefix: /home/romerogudw/anaconda3/envs/torch
 
