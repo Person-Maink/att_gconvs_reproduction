@@ -10,8 +10,8 @@ def main():
         "--experiment",
         type=str,
         required=False,
-        choices=["cifar10", "omniglot", "pcam", "rot_mnist"],
-        default="rot_mnist",
+        choices=["cifar10", "omniglot", "pcam", "rot_mnist", "onlyGlots", "toyDataset"],
+        default="onlyGlots",
         help="Which experiment to run."
     )
     parser.add_argument(
