@@ -5,7 +5,7 @@ import numpy as np, random
 from experiments.toyDataset import dataset, trainer     # adapt paths if different
 from experiments.run_util import *
 
-@hydra.main(version_base=None, config_path="experiment_configs", config_name="onlyGlots.yaml")  # default YAML
+@hydra.main(version_base=None, config_path="experiment_configs", config_name="toyDataset.yaml")  # default YAML
 def main(cfg: DictConfig) -> None:
     torch.manual_seed(cfg.seed)
     np.random.seed(cfg.seed)

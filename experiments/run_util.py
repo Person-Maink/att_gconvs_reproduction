@@ -6,7 +6,8 @@ import numpy as np
 
 def model_directory(args):
     # Create name from arguments
-    comment = "model_{}_optim_{}_lr_{}_wd_{}_seed_{}/".format(args.model, args.optim, args.lr, args.weight_decay, args.seed)
+    model = args.model["_target_"]
+    comment = "model_{}_optim_{}_lr_{}_wd_{}_seed_{}/".format(model, args.optim, args.lr, args.weight_decay, args.seed)
     if args.extra_comment is not "": comment = comment[:-1] + "_" + args.extra_comment + comment[-1]
     # Create directory
     modeldir = "./saved/" + comment

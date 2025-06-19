@@ -1,0 +1,14 @@
+model:
+  _target_: experiments.onlyGlots.models.fA_P4CNN
+batch_size: 128
+epochs: 300
+lr: 0.001
+weight_decay: 0.0001
+optim: adam
+device: cuda
+augment: false
+pretrained: false
+seed: 3
+extra_comment: ' '
+path: ' '
+root: experiments/onlyGlots

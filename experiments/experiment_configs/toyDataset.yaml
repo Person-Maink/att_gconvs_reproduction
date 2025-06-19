@@ -10,6 +10,7 @@ optim: adam
 device: cuda
 pretrained: false
 seed: 0
+augment: False
 extra_comment: " " # for naming files
 path: " " # gets added later
 root: "experiments/toyDataset/data"

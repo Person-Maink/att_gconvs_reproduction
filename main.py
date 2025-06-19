@@ -11,7 +11,7 @@ def main():
         type=str,
         required=False,
         choices=["cifar10", "omniglot", "pcam", "rot_mnist", "onlyGlots", "toyDataset"],
-        default="onlyGlots",
+        default="toyDataset",
         help="Which experiment to run."
     )
     parser.add_argument(

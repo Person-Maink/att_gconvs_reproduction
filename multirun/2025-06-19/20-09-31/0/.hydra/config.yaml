@@ -1,0 +1,14 @@
+model:
+  _target_: experiments.toyDataset.models.P4CNN
+batch_size: 128
+epochs: 100
+lr: 0.001
+weight_decay: 0.0001
+optim: adam
+device: cuda
+pretrained: false
+seed: 0
+augment: false
+extra_comment: ' '
+path: ' '
+root: experiments/toyDataset
