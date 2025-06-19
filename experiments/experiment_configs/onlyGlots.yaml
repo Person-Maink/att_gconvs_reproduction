@@ -1,0 +1,22 @@
+defaults:
+  - model: onlyGlots_P4CNN
+  - _self_
+
+batch_size: 128
+epochs: 300
+lr: 0.001
+weight_decay: 1e-4
+optim: adam
+device: cuda
+augment: False
+pretrained: false
+seed: 0
+extra_comment: " " # for naming files
+path: " " # gets added later
+root: "experiments/onlyGlots"
+
+hydra:
+  sweeper:
+    params:
+      model: onlyGlots_P4CNN, onlyGlots_B11P4CNN, onlyGlots_B15P4CNN, onlyGlots_B19P4CNN, onlyGlots_A_Ch_P4CNN, onlyGlots_A_Sp_P4CNN, onlyGlots_A_P4CNN, onlyGlots_fA_P4CNN, onlyGlots_RomHog_fA_P4CNN
+      seed: 0,1,2,3,4

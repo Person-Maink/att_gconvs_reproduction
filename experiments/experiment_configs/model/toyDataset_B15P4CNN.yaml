@@ -1,0 +1,2 @@
+_target_: experiments.toyDataset.models.P4CNN
+N_channels : 15

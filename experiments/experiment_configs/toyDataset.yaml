@@ -1,0 +1,21 @@
+defaults:
+  - model: toyDataset_P4CNN
+  - _self_
+
+batch_size: 128
+epochs: 100
+lr: 0.001
+weight_decay: 1e-4
+optim: adam
+device: cuda
+pretrained: false
+seed: 0
+extra_comment: " " # for naming files
+path: " " # gets added later
+root: "experiments/toyDataset/data"
+
+hydra:
+  sweeper:
+    params:
+      model: toyDataset_P4CNN, toyDataset_B11P4CNN, toyDataset_B15P4CNN, toyDataset_B19P4CNN, toyDataset_A_Ch_P4CNN, toyDataset_A_Sp_P4CNN, toyDataset_A_P4CNN, toyDataset_fA_P4CNN, toyDataset_RomHog_fA_P4CNN
+      seed: 0,1,2,3,4
