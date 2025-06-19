@@ -55,7 +55,7 @@ class Z2CNN(nn.Module):
 
 
 class P4CNN(nn.Module):
-    def __init__(self, use_bias=False):
+    def __init__(self, use_bias=False, N_channels=10):
         super(P4CNN, self).__init__()
 
         #Parameters of the group
@@ -75,7 +75,7 @@ class P4CNN(nn.Module):
         stride = 1
         padding = 0
         kernel_size = 3
-        N_channels = 10
+        N_channels = N_channels
         eps = 2e-5
 
         # Conv Layers

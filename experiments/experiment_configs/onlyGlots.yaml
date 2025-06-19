@@ -1,5 +1,5 @@
 defaults:
-  - model: onlyGlots_P4CNN
+  - model: onlyGlots_B11P4CNN
   - _self_
 
 batch_size: 128
