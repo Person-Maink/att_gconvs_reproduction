@@ -41,6 +41,7 @@ class JSONImageDataset(Dataset):
     """Images listed in a JSON file, e.g.
        [{"file": "data/000000.png", "valid": true, "label": 3}, ...]"""
     def __init__(self, json_path, root="", transform=None):
+        # print(json_path)
         with open(json_path, "r") as f:
             meta = json.load(f)
 
@@ -88,9 +89,11 @@ def get_dataset(batch_size, augmentation, num_workers, test_split=0.2, root="./d
     # ----------------------
     # Download full dataset
     # full_dataset = datasets.Omniglot(root=root, transform=None, download=True)
+    print("pls", root)
+    print("again", os.path.join(root, "dataset_labels.json"))
     full_dataset = JSONImageDataset(
         json_path=os.path.join(root, "dataset_labels.json"),
-        root=".",  # same folder that holds “data/000000.png”
+        root=root,  # same folder that holds “data/000000.png”
         transform=None
     )
 
