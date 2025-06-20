@@ -66,7 +66,7 @@ class RomHog_fA_P4CNN(nn.Module):
         self.c6 = se2_layers.fAttConvGG(N_in=N_channels, N_out=N_channels, kernel_size=kernel_size, h_grid=self.h_grid, input_h_grid=self.h_grid, stride=stride, padding=padding,
                                        spatial_attention=sp_GG(N_in=N_channels)
                                        )
-        self.c7 = se2_layers.fAttConvGG(N_in=N_channels, N_out=10        , kernel_size=4         , h_grid=self.h_grid, input_h_grid=self.h_grid, stride=stride, padding=padding,
+        self.c7 = se2_layers.fAttConvGG(N_in=N_channels, N_out=2        , kernel_size=4         , h_grid=self.h_grid, input_h_grid=self.h_grid, stride=stride, padding=padding,
                                        spatial_attention=sp_GG(N_in=N_channels)
                                        )
         # Dropout
@@ -93,9 +93,14 @@ class RomHog_fA_P4CNN(nn.Module):
         out = self.dp(torch.relu(self.bn5(self.c5(out))))
         out = self.dp(torch.relu(self.bn6(self.c6(out))))
 
+        # out = self.c7(out)
+        # out, _ = torch.max(out, dim=-3)
+        # out = out.view(out.size(0), 10)
         out = self.c7(out)
-        out, _ = torch.max(out, dim=-3)
-        out = out.view(out.size(0), 10)
+        out = out.mean(dim=-1).mean(dim=-1)
+        out, _ = torch.max(out, dim=-1)
+        out = out.view(out.size(0), 2)
+        return out
 
         # Visualize
         if False:
