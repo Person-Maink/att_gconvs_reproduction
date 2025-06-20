@@ -70,6 +70,7 @@ class JSONImageDataset(Dataset):
 
     def __getitem__(self, idx):
         img_path, label = self.items[idx]
+        # print(img_path)
         img = Image.open(img_path).convert("RGB")
         if self.transform:
             img = self.transform(img)
@@ -77,7 +78,7 @@ class JSONImageDataset(Dataset):
 
 
 def get_dataset(batch_size, augmentation, num_workers, test_split=0.2, root="./data"):
-    from dataset import TransformDataset
+    # from dataset import TransformDataset
     # Create transformations
     # ----------------------
     normalize = transforms.Normalize(mean=[0.5], std=[0.5])
@@ -101,12 +102,12 @@ def get_dataset(batch_size, augmentation, num_workers, test_split=0.2, root="./d
     else:
         transf_train = transf_test
 
-    # ----------------------
+    # ----------------------s
     # Download full dataset
     # full_dataset = datasets.Omniglot(root=root, transform=None, download=True)
     full_dataset = JSONImageDataset(
-        json_path=os.path.join(root, "data/file_to_label.json"),
-        root="data",  # same folder that holds “data/000000.png”
+        json_path=os.path.join(root, "file_to_label.json"),
+        root=root,  # same folder that holds “data/000000.png”
         transform=None
     )
 
